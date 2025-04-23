@@ -228,20 +228,26 @@ namespace API_CINE.Controllers
             }
             catch (ApplicationException ex)
             {
-                _loggingService.LogWarning($"Error al crear orden: {ex.Message}");
-                return BadRequest(new ApiResponse<object>
+                // Registrar detalles más específicos
+                _loggingService.LogError($"Error al crear orden: {ex.Message}. StackTrace: {ex.StackTrace}", ex);
+                // Devolver un mensaje de error más detallado para depuración
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse<object>
                 {
                     Success = false,
-                    Message = ex.Message
+                    Message = $"Error al crear orden:: {ex.Message}",
+                    Data = ex.StackTrace
                 });
             }
             catch (Exception ex)
             {
-                _loggingService.LogError($"Error al crear orden: {ex.Message}", ex);
+                // Registrar detalles más específicos
+                _loggingService.LogError($"Error al crear orden: {ex.Message}. StackTrace: {ex.StackTrace}", ex);
+                // Devolver un mensaje de error más detallado para depuración
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse<object>
                 {
                     Success = false,
-                    Message = "Error al crear la orden"
+                    Message = $"Error al crear orden:: {ex.Message}",
+                    Data = ex.StackTrace
                 });
             }
         }
@@ -342,11 +348,14 @@ namespace API_CINE.Controllers
             }
             catch (Exception ex)
             {
-                _loggingService.LogError($"Error al procesar pago para orden con ID {id}: {ex.Message}", ex);
+                // Registrar detalles más específicos
+                _loggingService.LogError($"Error al procesar pago para orden con ID {ex.Message}. StackTrace: {ex.StackTrace}", ex);
+                // Devolver un mensaje de error más detallado para depuración
                 return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse<object>
                 {
                     Success = false,
-                    Message = "Error al procesar el pago de la orden"
+                    Message = $"Error al procesar pago para orden con ID: {id} {ex.Message}",
+                    Data = ex.StackTrace
                 });
             }
         }
