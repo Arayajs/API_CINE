@@ -251,7 +251,12 @@ namespace API_CINE.Controllers
         /// <param name="cinemaRequest">Datos del cine</param>
         /// <returns>Cine creado</returns>
         [HttpPost]
-       
+        [Authorize(Roles = "Administrator")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ApiResponse<CinemaDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<object>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status403Forbidden)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(ApiResponse<object>))]
         public async Task<IActionResult> CreateCinema([FromBody] CinemaRequest cinemaRequest)
         {
             try
@@ -280,7 +285,15 @@ namespace API_CINE.Controllers
                     Data = cinema
                 });
             }
-            
+            catch (Exception ex)
+            {
+                _loggingService.LogError($"Error al crear cine: {ex.Message}", ex);
+                return StatusCode(StatusCodes.Status500InternalServerError, new ApiResponse<object>
+                {
+                    Success = false,
+                    Message = "Error al crear el cine"
+                });
+            }
         }
 
         /// <summary>
