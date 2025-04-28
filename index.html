@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Josue Gamez Araya </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #9d4edd;
+            --secondary-color: #7b2cbf;
+            --text-color: #e2e2e2;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --medium-bg: #1e1e1e;
+            --light-bg: #2d2d2d;
+            --border-color: #333333;
+            --hover-color: #3a0ca3;
+            --card-bg: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--darker-bg);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            padding: 8px 16px;
+            border-radius: 5px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        nav a:hover {
+            background-color: var(--hover-color);
+            color: white;
+        }
+
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(to right, #3a0ca3, #7b2cbf);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--darker-bg);
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background-color: black;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        .sobre-mi {
+            background-color: var(--darker-bg);
+        }
+
+        .bio {
+            display: flex;
+            align-items: flex-start;
+            gap: 40px;
+        }
+
+        .bio-content {
+            flex: 1;
+        }
+
+        .bio-image {
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+            border: 2px solid var(--primary-color);
+        }
+
+        .info-list {
+            margin-top: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .info-item i {
+            color: var(--primary-color);
+            margin-right: 10px;
+            width: 24px;
+        }
+
+        .habilidades {
+            background-color: var(--dark-bg);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.2);
+        }
+
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-card h3 i {
+            margin-right: 10px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        .experiencia {
+            background-color: var(--darker-bg);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            top: 15px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .timeline-title {
+            margin: 10px 0;
+            color: var(--text-color);
+        }
+
+        .timeline-company {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .proyectos {
+            background-color: var(--dark-bg);
+        }
+
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(157, 78, 221, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .project-image {
+            height: 200px;
+            width: 100%;
+            background-color: var(--medium-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+
+        .tech-tag {
+            background-color: var(--hover-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .contacto {
+            background-color: var(--darker-bg);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .contact-links {
+            list-style: none;
+        }
+
+        .contact-links li {
+            margin-bottom: 15px;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-links i {
+            width: 30px;
+            color: var(--primary-color);
+        }
+
+        .contact-form {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .form-input, .form-textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            background-color: var(--medium-bg);
+            color: var(--text-color);
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .bio {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .form-input:focus, .form-textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(157, 78, 221, 0.2);
+}
+
+       
+.form-input.error, .form-textarea.error {
+    border-color: #ff6b6b;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 0.8rem;
+    margin-top: 5px;
+}
+
+/* Estilos del botón de envío */
+.submit-button {
+    position: relative;
+}
+
+.submit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Animación de carga */
+@keyframes spinner {
+    to { transform: rotate(360deg); }
+}
+
+.submit-button.loading {
+    padding-left: 45px;
+}
+
+.submit-button.loading::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 15px;
+    top: 50%;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    animation: spinner .8s linear infinite;
+}
+
+/* Estilo para notificaciones */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+.notification.success {
+    background-color: #4caf50;
+}
+
+.notification.error {
+    background-color: #f44336;
+}
+
+/* Animaciones para notificaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+           
+            emailjs.init("b0g5kC1kYtnsr7mrc");
+        })();
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">JG</div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre-mi">Sobre mí</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#experiencia">Experiencia</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Josue Gamez Araya</h1>
+            <p>Desarrollador de Software & Especialista en Servicio al Cliente</p>
+            <a href="#contacto" class="cta-button">Contáctame</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="sobre-mi" class="section sobre-mi">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="bio">
+                 
+                <div class="bio-content">
+                    <p>
+                        Estudiante avanzado en Ingeniería de Sistemas, con experiencia en puestos administrativos, servicio al cliente y soporte técnico. 
+                        Mi personalidad y entusiasmo me hace ser una persona enfocada, de buenos valores y con mucha energía para llevar a cabo tareas 
+                        que me permitan obtener experiencia laboral acorde a mis metas profesionales.
+                    </p>
+                    <p>
+                        Profesional proactivo con habilidades destacadas en atención al cliente y gestión de logística. Me apasiona trabajar 
+                        en entornos que exigen compromiso y resolución eficaz de problemas, siempre enfocado en el cliente y buscando la 
+                        mejora continua en los procesos.
+                    </p>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>josuegamez2021@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="https://linkedin.com/in/arayajs" target="_blank">linkedin.com/in/arayajs</a>
+                        </div>
+                        <div class="info-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/arayajs" target="_blank">github.com/arayajs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="section habilidades">
+        <div class="container">
+            <h2 class="section-title">Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3><i class="fas fa-code"></i> Desarrollo de Software</h3>
+                    <ul class="skill-list">
+                        <li>Java</li>
+                        <li>C#</li>
+                        <li>PHP</li>
+                        <li>SQL</li>
+                        <li>HTML/CSS/JavaScript</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-server"></i> Sistemas</h3>
+                    <ul class="skill-list">
+                        <li>Windows</li>
+                        <li>Linux</li>
+                        <li>PC/Server</li>
+                        <li>Routers</li>
+                        <li>Switches</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-headset"></i> Servicio al Cliente</h3>
+                    <ul class="skill-list">
+                        <li>Resolución de problemas</li>
+                        <li>Manejo de quejas</li>
+                        <li>Fidelización de clientes</li>
+                        <li>Capacitación de usuarios</li>
+                        <li>Soporte técnico</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fas fa-tasks"></i> Administración</h3>
+                    <ul class="skill-list">
+                        <li>Control de inventarios</li>
+                        <li>Gestión de bases de datos</li>
+                        <li>Microsoft Office Suite</li>
+                        <li>Elaboración de informes</li>
+                        <li>Seguimiento con proveedores</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiencia" class="section experiencia">
+        <div class="container">
+            <h2 class="section-title">Experiencia Laboral</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022 - presente</div>
+                        <h3 class="timeline-title">Customer Service</h3>
+                        <div class="timeline-company">Amazon</div>
+                        <p>
+                            Atención y soporte a clientes del sector retail, resolución de problemas en órdenes de compra,
+                            seguimiento y coordinación con proveedores externos. Manejo de quejas y sugerencias de clientes,
+                            garantizando satisfacción y fidelización.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3 class="timeline-title">Asistente de Logística</h3>
+                        <div class="timeline-company">Belina Industrial</div>
+                        <p>
+                            Control de inventarios, registros semanales de stock, recibimiento y almacenamiento de materias primas.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <h3 class="timeline-title">Servicio al cliente de dispositivos Alexa</h3>
+                        <div class="timeline-company">Amazon</div>
+                        <p>
+                            Resolución de problemas relacionados con cobros de suscripciones. Educación a clientes sobre 
+                            actualizaciones y funcionalidades de Alexa. Manejo de devoluciones y asistencia en configuración de redes.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2019 - 2020</div>
+                        <h3 class="timeline-title">Asistente Administrativo</h3>
+                        <div class="timeline-company">Transportes el Rayo</div>
+                        <p>
+                            Seguimiento y coordinación con proveedores externos. Control de inventarios.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="section proyectos">
+        <div class="container">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pendiente de subir</h3>
+                        <p></p>
+                        <div class="project-tech">
+                            <span class="tech-tag"></span>
+                            <span class="tech-tag"></span>
+                            <span class="tech-tag"></span>
+                        </div>
+                        <div class="project-links">
+                            <a href=" " target="_blank"><i class="fab fa-github"></i> Repositorio</a>    
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">API de un Cine</h3>
+                        <p>API de un Cine el cual tiene funciones de realizar el login y registro,manejar peliculas,cines,ordenes,ticketes y realizar su listado</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">C#</span>
+                    
+                            <span class="tech-tag">API Cinema</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/arayajs/API_CINE" target="_blank"><i class="fab fa-github"></i> Repositorio</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">App de un Cine</h3>
+                        <p>App Android para un Cine el cual realiza registros,login,visualización de pelicuas,cines,ordernes,ticketes, informacion de la cuenta, el cual consume la API</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/arayajs/API_CINE" target="_blank"><i class="fab fa-github"></i> Repositorio</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul class="contact-links">
+                        <li>
+                            <a href="mailto:josuegamez2021@gmail.com">
+                                <i class="fas fa-envelope"></i> josuegamez2021@gmail.com
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="https://linkedin.com/in/arayajs" target="_blank">
+                                <i class="fab fa-linkedin"></i> linkedin.com/in/arayajs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/arayajs" target="_blank">
+                                <i class="fab fa-github"></i> github.com/arayajs
+                            </a>
+                        </li>
+                       
+                    </ul>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Nombre</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Correo Electrónico</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Asunto</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-button">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/arayajs" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/arayajs" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:josuegamez2021@gmail.com"><i class="fas fa-envelope"></i></a>
+                
+            </div>
+            <p>&copy; 2025 Josue Gamez Araya. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SOLID JavaScript Implementation -->
+    <script>
+    // Implementación siguiendo principios SOLID
+    
+    // Module pattern para encapsular código
+    const PortfolioApp = (function() {
+        // Interfaces (para S y I de SOLID)
+        
+        // S - Single Responsibility Principle
+        // Cada clase tiene una única responsabilidad
+
+        // NavigationService - Maneja la navegación del sitio
+        class NavigationService {
+            constructor() {
+                this.setupSmoothScrolling();
+            }
+            
+            setupSmoothScrolling() {
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+                
+                console.log('NavigationService: Smooth scrolling initialized');
+            }
+        }
+        
+        class ContactFormService {
+            constructor(formId) {
+                this.form = document.getElementById(formId);
+                if (this.form) {
+                    this.setupFormSubmission();
+                } else {
+                    console.error(`ContactFormService: Form with id ${formId} not found`);
+                }
+            }
+            
+            setupFormSubmission() {
+                this.form.addEventListener('submit', this.handleSubmit.bind(this));
+                console.log('ContactFormService: Form submission handler setup');
+            }
+            
+            handleSubmit(e) {
+    e.preventDefault();
+    
+    // Validar el formulario antes de enviar
+    if (!this.validateForm()) {
+        return;
+    }
+    
+    // Mostrar indicador de carga
+    const submitButton = this.form.querySelector('.submit-button');
+    const originalButtonText = submitButton.textContent;
+    submitButton.textContent = 'Enviando...';
+    submitButton.disabled = true;
+    submitButton.classList.add('loading');
+    
+    // Obtener los valores directamente de los campos
+    const templateParams = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+    };
+    
+    console.log('Enviando email con los siguientes parámetros:', templateParams);
+    
+    // Enviar el email usando EmailJS
+    emailjs.send('service_6ea9vlv', 'template_87n2fwr', templateParams)
+        .then((response) => {
+            console.log('ContactFormService: Email sent successfully', response);
+            alert('¡Gracias por tu mensaje! Te contactaré pronto.');
+            this.form.reset();
+            
+            // Restaurar el botón
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
+        })
+        .catch((error) => {
+            console.error('ContactFormService: Error sending email', error);
+            alert('Hubo un problema al enviar tu mensaje. Por favor, intenta de nuevo o contáctame directamente por email.');
+            console.error('Error details:', error);
+            
+            // Restaurar el botón
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+            submitButton.classList.remove('loading');
+        });
+}
+            
+            validateForm() {
+                let isValid = true;
+                const requiredFields = this.form.querySelectorAll('[required]');
+                
+                requiredFields.forEach(field => {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        this.showError(field, 'Este campo es obligatorio');
+                    } else if (field.type === 'email' && !this.isValidEmail(field.value)) {
+                        isValid = false;
+                        this.showError(field, 'Por favor, ingresa un email válido');
+                    } else {
+                        this.removeError(field);
+                    }
+                });
+                
+                return isValid;
+            }
+            
+            showError(field, message) {
+                this.removeError(field);
+                const errorElement = document.createElement('div');
+                errorElement.className = 'error-message';
+                errorElement.textContent = message;
+                field.parentNode.appendChild(errorElement);
+                field.classList.add('error');
+            }
+            
+            removeError(field) {
+                const errorElement = field.parentNode.querySelector('.error-message');
+                if (errorElement) {
+                    errorElement.remove();
+                }
+                field.classList.remove('error');
+            }
+            
+            isValidEmail(email) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailRegex.test(email);
+            }
+            
+            showSuccessMessage(message) {
+                this.showNotification(message, 'success');
+            }
+            
+            showErrorMessage(message) {
+                this.showNotification(message, 'error');
+            }
+            
+            showNotification(message, type) {
+                // Eliminar notificaciones existentes
+                const existingNotifications = document.querySelectorAll('.notification');
+                existingNotifications.forEach(notification => notification.remove());
+                
+                // Crear nueva notificación
+                const notification = document.createElement('div');
+                notification.className = `notification ${type}`;
+                notification.textContent = message;
+                
+                // Agregar notificación al body
+                document.body.appendChild(notification);
+                
+                // Eliminar la notificación después de 5 segundos
+                setTimeout(() => {
+                    notification.style.animation = 'fadeOut 0.3s ease-out forwards';
+                    setTimeout(() => {
+                        notification.remove();
+                    }, 300);
+                }, 5000);
+            }
+        }
+        
+        // ProjectsService - Maneja la visualización de proyectos
+        class ProjectsService {
+            constructor(containerId) {
+                this.container = document.querySelector(containerId);
+                this.projects = [];
+            }
+            
+            // Método para cargar proyectos desde una API/JSON en una implementación real
+            loadProjects(projectsData) {
+                this.projects = projectsData;
+                console.log('ProjectsService: Projects loaded', this.projects.length);
+            }
+            
+            // Este método podría utilizarse para filtrar proyectos por tecnología, etc.
+            filterProjects(filterCriteria) {
+                return this.projects.filter(project => {
+                    // Implementación del filtro
+                    return true;
+                });
+            }
+        }
+        
+        // AnimationService - Maneja las animaciones de la página
+        class AnimationService {
+            constructor() {
+                this.setupScrollAnimations();
+            }
+            
+            setupScrollAnimations() {
+                // En una implementación completa, aquí se agregarían las animaciones
+                // basadas en scroll u otras interacciones
+                console.log('AnimationService: Scroll animations initialized');
+            }
+            
+            animateElement(element, animationType) {
+                if (!element) return;
+                
+                // Implementación de animaciones específicas
+                console.log(`AnimationService: Animating element with ${animationType}`);
+            }
+        }
+        
+        // ThemeService - Gestiona el tema de la aplicación (O de SOLID - Open/Closed)
+        class ThemeService {
+            constructor() {
+                this.currentTheme = 'dark-purple';
+            }
+            
+            // Permite extender la funcionalidad sin modificar el código existente
+            setTheme(themeName) {
+                // En una implementación completa, aquí cambiaríamos las variables CSS
+                this.currentTheme = themeName;
+                console.log(`ThemeService: Theme set to ${themeName}`);
+                
+                // Aplicar tema a elementos DOM
+                document.body.dataset.theme = themeName;
+            }
+            
+            getTheme() {
+                return this.currentTheme;
+            }
+        }
+        
+        // L - Liskov Substitution Principle
+        // Las clases base pueden ser reemplazadas por sus subclases
+        
+        // Clase base para los servicios de datos
+        class DataService {
+            constructor() {
+                if (this.constructor === DataService) {
+                    throw new Error('DataService is abstract and cannot be instantiated directly');
+                }
+            }
+            
+            fetchData() {
+                throw new Error('Method fetchData() must be implemented');
+            }
+            
+            processData(data) {
+                // Implementación común de procesamiento de datos
+                console.log('DataService: Processing data');
+                return data;
+            }
+        }
+        
+        // Implementación concreta que puede sustituir a la clase base
+        class ApiDataService extends DataService {
+            constructor(apiUrl) {
+                super();
+                this.apiUrl = apiUrl;
+            }
+            
+            fetchData() {
+                // Simulación de fetch de datos desde una API
+                console.log(`ApiDataService: Fetching data from ${this.apiUrl}`);
+                return Promise.resolve([]);
+            }
+        }
+        
+        // Otra implementación que también puede sustituir a la clase base
+        class LocalDataService extends DataService {
+            constructor(storageKey) {
+                super();
+                this.storageKey = storageKey;
+            }
+            
+            fetchData() {
+                // Simulación de obtención de datos desde localStorage
+                console.log(`LocalDataService: Fetching data from localStorage with key ${this.storageKey}`);
+                const data = localStorage.getItem(this.storageKey);
+                return Promise.resolve(data ? JSON.parse(data) : []);
+            }
+            
+            saveData(data) {
+                localStorage.setItem(this.storageKey, JSON.stringify(data));
+                console.log(`LocalDataService: Data saved to localStorage with key ${this.storageKey}`);
+            }
+        }
+        
+        // D - Dependency Inversion Principle
+        // Depender de abstracciones, no de implementaciones concretas
+        
+        // Factory que crea servicios basados en configuración
+        class ServiceFactory {
+            static createDataService(config) {
+                if (config.type === 'api') {
+                    return new ApiDataService(config.url);
+                } else if (config.type === 'local') {
+                    return new LocalDataService(config.key);
+                } else {
+                    throw new Error(`Unknown data service type: ${config.type}`);
+                }
+            }
+        }
+        
+        // I - Interface Segregation Principle
+        // Es mejor tener muchas interfaces específicas que una general
+        
+        // Observer para comunicación entre componentes
+        class EventBus {
+            constructor() {
+                this.subscribers = {};
+            }
+            
+            subscribe(event, callback) {
+                if (!this.subscribers[event]) {
+                    this.subscribers[event] = [];
+                }
+                
+                this.subscribers[event].push(callback);
+                return () => this.unsubscribe(event, callback);
+            }
+            
+            unsubscribe(event, callback) {
+                if (!this.subscribers[event]) return;
+                
+                this.subscribers[event] = this.subscribers[event]
+                    .filter(subscriber => subscriber !== callback);
+            }
+            
+            publish(event, data) {
+                if (!this.subscribers[event]) return;
+                
+                this.subscribers[event].forEach(callback => {
+                    callback(data);
+                });
+            }
+        }
+        
+        // Aplicación principal que instancia y coordina todos los servicios
+        class App {
+            constructor() {
+                // Instanciar servicios centrales
+                this.eventBus = new EventBus();
+                this.navigationService = new NavigationService();
+                this.contactFormService = new ContactFormService('contactForm');
+                this.themeService = new ThemeService();
+                
+                // Crear servicio de datos usando la factory (Dependency Inversion)
+                this.dataService = ServiceFactory.createDataService({
+                    type: 'local',
+                    key: 'portfolio-data'
+                });
+                
+                // Servicios adicionales
+                this.projectsService = new ProjectsService('.projects-container');
+                this.animationService = new AnimationService();
+                
+                console.log('App: All services initialized');
+            }
+            
+            init() {
+                // Inicializar la aplicación
+                console.log('App: Initializing application');
+                
+                // Ejemplo de comunicación a través del EventBus
+                this.eventBus.subscribe('theme-changed', (theme) => {
+                    console.log(`App: Theme changed to ${theme}`);
+                });
+                
+                // Cargar datos iniciales
+                this.dataService.fetchData()
+                    .then(data => {
+                        console.log('App: Initial data loaded');
+                    })
+                    .catch(error => {
+                        console.error('App: Error loading initial data', error);
+                    });
+            }
+        }
+        
+        // Inicialización cuando el DOM está completamente cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            const app = new App();
+            app.init();
+        });
+        
+        // Exponer selectivamente para testing o interoperabilidad
+        return {
+            App,
+            ServiceFactory,
+            EventBus
+        };
+    })();
